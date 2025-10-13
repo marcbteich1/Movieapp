@@ -1,0 +1,21 @@
+<h3>All Videos</h3>
+<p><a href="/add_video">Add New</a> | <a href="/">Home</a></p>
+<table border="1" cellpadding="6" cellspacing="0">
+    <tr>
+        <th>MovieID</th><th>Title</th><th>Actor1</th><th>Actor2</th><th>Director</th><th>Genre</th><th>Year</th><th>Actions</th>
+    </tr>
+    {% for v in videos %}
+    <tr>
+        <td>{{ v.MovieID }}</td>
+        <td>{{ v.MovieTitle }}</td>
+        <td>{{ v.Actor1Name }}</td>
+        <td>{{ v.Actor2Name }}</td>
+        <td>{{ v.DirectorName }}</td>
+        <td>{{ v.MovieGenre }}</td>
+        <td>{{ v.ReleaseYear }}</td>
+        <td>[<a href="/edit/{{ v.MovieID }}">edit</a>] [<a href="/delete/{{ v.MovieID }}">delete</a>]</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="8">No videos</td></tr>
+    {% endfor %}
+</table>
