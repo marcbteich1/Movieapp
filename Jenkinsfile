@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git branch: 'main', url: 'YOUR_GITHUB_URL'
+        git branch: 'main', url: 'https://github.com/marcbteich1/Movieapp'
       }
     }
 
