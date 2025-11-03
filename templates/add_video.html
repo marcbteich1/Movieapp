@@ -1,0 +1,19 @@
+<h3>Add or Edit Video</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+    <a href="/list">Cancel</a>
+</form>
+<hr>
+<h4>Existing Videos</h4>
+<ul>
+    {% for v in videos %}
+        <li>{{ v.MovieID }} - {{ v.MovieTitle }} ({{ v.ReleaseYear }}) 
+            [<a href="/edit/{{ v.MovieID }}">edit</a>] 
+            [<a href="/delete/{{ v.MovieID }}">delete</a>]
+        </li>
+    {% empty %}
+        <li>No videos yet.</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,21 @@
+<h3>Find Video by MovieID</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Find</button>
+    <a href="/">Home</a>
+</form>
+{% if found %}
+    <hr>
+    <ul>
+        <li><b>MovieID:</b> {{ found.MovieID }}</li>
+        <li><b>Title:</b> {{ found.MovieTitle }}</li>
+        <li><b>Actor1:</b> {{ found.Actor1Name }}</li>
+        <li><b>Actor2:</b> {{ found.Actor2Name }}</li>
+        <li><b>Director:</b> {{ found.DirectorName }}</li>
+        <li><b>Genre:</b> {{ found.MovieGenre }}</li>
+        <li><b>Year:</b> {{ found.ReleaseYear }}</li>
+    </ul>
+{% elif found is not none %}
+    <p>No match.</p>
+{% endif %}
